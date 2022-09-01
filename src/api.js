@@ -94,12 +94,12 @@ function callForReviews(listingId, limit = 50, offset = 0) {
  */
 function getCalendarMonths(listingId, checkIn, months) {
     const date = moment(checkIn);
-    const pastDate = date.subtract(months,'months')
+    //const pastDate = date.subtract(months,'months')
 
     const calendarUrlParams = new URLSearchParams({
         listing_id: listingId,
-        month: pastDate.get('month') + 1,
-        year: pastDate.get('year'),
+        month: date.get('month') + 1,
+        year: date.get('year'),
         count: months,
     });
     return `https://api.airbnb.com/v2/calendar_months?${calendarUrlParams.toString()}`;
